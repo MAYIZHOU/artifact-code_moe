@@ -3,7 +3,7 @@
 This repository contains the reproducible experimental pipeline for **Cost-Aware
 Mixture-of-Experts Coordination for Model Markets**. A single configuration-driven
 entry point supports every dataset reported in the paper and can regenerate the
-main table data and Figures 3-7.
+main table data and Figures.
 
 ## Reproduction protocol
 
@@ -111,7 +111,7 @@ Run only the five-seed main table experiment at `beta = 0.3`:
 python experiments/run_dataset.py --dataset adult --stage table --device cuda
 ```
 
-Run the main table and the complete Figure 3-7 workflow:
+Run the main table and the complete Figure workflow:
 
 ```bash
 python experiments/run_dataset.py --dataset adult --stage all --device cuda
@@ -128,8 +128,7 @@ python experiments/run_dataset.py --dataset adult --stage all --device cuda --qu
 ```
 
 The quick protocol uses fewer samples, one expert-training epoch, one gate-training
-epoch, and the beta grid `[0.0, 0.3, 1.0]`. It checks the pipeline only and must not
-be reported as a paper result.
+epoch, and the beta grid `[0.0, 0.3, 1.0]`. It checks the pipeline only.
 
 Seeds can be overridden explicitly:
 
@@ -177,6 +176,9 @@ therefore retains all completed seed results. PNG and PDF figures are generated
 from the saved summaries, not from hidden in-memory state.
 
 Figure meanings:
+
+These figure numbers are internal identifiers used by the experimental pipeline
+and do not necessarily correspond to the figure numbers in the paper.
 
 - **Figure 3:** sensitivity to the market cost coefficient `beta`. The first panel's
   legend applies to every panel; shaded regions show one standard deviation.
@@ -254,4 +256,3 @@ src/moe_market/models/         experts, gating network, and MoE composition
 src/moe_market/                costs, objectives, training, evaluation, allocation
 tests/                         offline unit and smoke tests
 ```
-
