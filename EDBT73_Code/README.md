@@ -255,11 +255,3 @@ src/moe_market/                costs, objectives, training, evaluation, allocati
 tests/                         offline unit and smoke tests
 ```
 
-## Build an upload-ready directory
-
-The working tree may contain historical scripts and locally generated artifacts.
-Create a clean release directory without deleting or modifying the working tree:
-
-```bash
-python scripts/build_release.py --output ../moe_market_release
-```
