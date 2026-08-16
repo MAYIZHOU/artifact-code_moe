@@ -1,0 +1,82 @@
+experiment: paper_tabular_classification
+task: classification
+datasets: [breast_cancer, page_blocks, yeast, adult, ionosphere]
+seeds: [1, 2, 3, 4, 5]
+
+data:
+  validation_ratio: 0.1
+  test_ratio: 0.1
+  batch_size: 128
+  num_workers: 0
+
+model:
+  expert_pool: tabular_classification_hybrid
+  gate_hidden: 64
+  gate_depth: 1
+  routing: dense
+  top_k: 1
+  training_mode: independent_frozen
+  provider_split: full
+  tree:
+    iterations: 200
+    depth: 6
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    threads: 1
+
+training:
+  epochs: 10
+  expert_fit_epochs: 10
+  learning_rate: 0.001
+  weight_decay: 0.0
+  patience: 10
+
+objective:
+  alpha: 5.0
+  beta: 0.3
+  evaluation_beta: 0.3
+  loss_reference: 1.0
+
+evaluation:
+  best_expert_split: validation
+  include_cost_aware_selection: true
+
+cost:
+  source: latency
+  mode: weighted
+  training_mode: weighted
+  evaluation_mode: weighted
+  input_scale: 0.0
+  measurement_batch_size: 128
+  warmup: 10
+  repeats: 50
+  normalization: mean
+
+sensitivity:
+  beta_grid: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+
+allocation:
+  service_price: 10.0
+  broker_fee: 1.0
+  lambda: 0.6
+  lambda_grid: [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+  shapley_runtime_repeats: 3
+  proposed_runtime_repeats: 1000
+
+quick:
+  samples: 768
+  image_train_samples: 2048
+  image_validation_samples: 512
+  image_test_samples: 512
+  epochs: 1
+  expert_fit_epochs: 1
+  latency_warmup: 1
+  latency_repeats: 3
+  beta_grid: [0.0, 0.3, 1.0]
+  shapley_runtime_repeats: 1
+  proposed_runtime_repeats: 10
+
+output_dir: results/paper_tabular_classification/raw
+figure_dir: results/paper_tabular_classification/figures
+table_dir: results/paper_tabular_classification/tables
