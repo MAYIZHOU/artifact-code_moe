@@ -34,23 +34,35 @@ cost-adjusted allocation.
 
 ## Supported datasets
 
-Tabular classification:
+### Tabular classification
 
-```text
-breast_cancer, page_blocks, yeast, adult, ionosphere
-```
+| Configuration name | Dataset | Task | Brief description | Official source |
+| --- | --- | --- | --- | --- |
+| `breast_cancer` | Breast Cancer Wisconsin (Diagnostic) | Binary classification | Predicts whether a breast mass is malignant or benign from features computed from digitized cell-nucleus images. | [UCI](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic) |
+| `page_blocks` | Page Blocks Classification | Multiclass classification | Classifies segmented document-layout blocks as text, graphics, lines, or pictures. | [UCI](https://archive.ics.uci.edu/dataset/78/page+blocks+classification) |
+| `yeast` | Yeast | Multiclass classification | Predicts the cellular localization sites of proteins from sequence-derived attributes. | [UCI](https://archive.ics.uci.edu/dataset/110/yeast) |
+| `adult` | Adult Census Income | Binary classification | Predicts whether annual income exceeds USD 50,000 from census attributes. | [UCI](https://archive.ics.uci.edu/dataset/2/adult) |
+| `ionosphere` | Ionosphere | Binary classification | Classifies radar returns as good or bad using signal measurements from an ionospheric radar system. | [UCI](https://archive.ics.uci.edu/dataset/52/ionosphere) |
 
-Tabular regression:
+### Tabular regression
 
-```text
-abalone, concrete, forest_fires, bike_sharing, diabetes, wine_quality
-```
+| Configuration name | Dataset | Task | Brief description | Official source |
+| --- | --- | --- | --- | --- |
+| `abalone` | Abalone | Regression | Predicts abalone age from physical measurements. | [UCI](https://archive.ics.uci.edu/dataset/1/abalone) |
+| `concrete` | Concrete Compressive Strength | Regression | Predicts concrete compressive strength from mixture composition and curing age. | [UCI](https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength) |
+| `forest_fires` | Forest Fires | Regression | Predicts the burned area of forest fires from spatial, weather, and fire-weather-index variables. | [UCI](https://archive.ics.uci.edu/dataset/162/forest+fires) |
+| `bike_sharing` | Bike Sharing | Regression | Predicts bike-rental demand from temporal, seasonal, and weather information. | [UCI](https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset) |
+| `diabetes` | Diabetes | Regression | Predicts disease progression one year after baseline from ten clinical variables. | [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) |
+| `wine_quality` | Wine Quality | Regression | Predicts sensory quality scores from physicochemical measurements of wine. | [UCI](https://archive.ics.uci.edu/dataset/186/wine+quality) |
 
-Image classification:
+### Image classification
 
-```text
-mnist, fashion_mnist, kmnist, svhn
-```
+| Configuration name | Dataset | Task | Brief description | Official source |
+| --- | --- | --- | --- | --- |
+| `mnist` | MNIST | 10-class classification | Recognizes handwritten digits from grayscale images. | [torchvision](https://docs.pytorch.org/vision/stable/generated/torchvision.datasets.MNIST.html) |
+| `fashion_mnist` | Fashion-MNIST | 10-class classification | Recognizes clothing and accessory categories from grayscale images. | [torchvision](https://docs.pytorch.org/vision/stable/generated/torchvision.datasets.FashionMNIST.html) |
+| `kmnist` | KMNIST | 10-class classification | Recognizes Japanese Kuzushiji characters from grayscale images. | [torchvision](https://docs.pytorch.org/vision/stable/generated/torchvision.datasets.KMNIST.html) |
+| `svhn` | SVHN | 10-class classification | Recognizes digits cropped from real-world street-view house-number images. | [torchvision](https://docs.pytorch.org/vision/stable/generated/torchvision.datasets.SVHN.html) |
 
 List the datasets recognized by the installed code:
 
